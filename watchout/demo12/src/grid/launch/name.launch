@@ -1,0 +1,7 @@
+<launch>
+    <param name="base_frame" type="string" value="fsf"/>
+    <param name="odom_frame" value="fsaf"/>
+    <node name="nametest" pkg="grid" type="nametest" output="screen">
+
+    </node>
+</launch>

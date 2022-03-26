@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <include file="$(find base_control)/launch/base_control.launch"/> -->
+	<arg name="base_frame" default="/base_footprint"/>
+    <arg name="map_frame" default="/map"/>
+
+    <!--        雷达和机器人的坐标转化      -->
+    <node name="laser2base" pkg="tf" type="static_transform_publisher" 
+            args="0 0 0 0 0 0 /map /laser 20"/>  
+
+    <!--        地图和里程计的坐标转化      -->
+    <node name="map" pkg="tf" type="static_transform_publisher"
+            args="0 0 0 0 0 0 /map /odom 20"/>
+
+    <!--        用于将激光雷达数据转化为 map_frame 下的点云信息         -->
+    <node name="Scan2point" pkg="robot_perception" type="Scan2point" output="screen">
+        <param name="map_frame" value="/map"/>
+
+    </node>
+    
+    <!--        手动实现聚类算法         -->
+    <node name="manul_cluster" pkg="robot_perception" type="Frame" output="screen" >
+        <param name="map_frame" value="/map"/>
+    </node>
+
+    <!--可视化-->
+	<!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot_perception)/rviz/point.rviz"/>-->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" />  -->
+</launch> 

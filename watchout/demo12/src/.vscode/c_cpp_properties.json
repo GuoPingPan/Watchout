@@ -1,0 +1,27 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/pgp/ws_livox/devel/include/**",
+        "/home/pgp/demo1/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/pgp/demo1/src/hector_slam/hector_geotiff/include/**",
+        "/home/pgp/demo1/src/hector_slam/hector_map_tools/include/**",
+        "/home/pgp/demo1/src/hector_slam/hector_mapping/include/**",
+        "/home/pgp/demo1/src/hector_slam/hector_marker_drawing/include/**",
+        "/home/pgp/nanorobot_ws/src/lidar/hls_lfcd_lds_driver/include/**",
+        "/home/pgp/demo1/src/robot_decision/include/**",
+        "/home/pgp/demo1/src/robot_nav/include/**",
+        "/home/pgp/demo1/src/robot_perception/include/**",
+        "/home/pgp/nanorobot_ws/src/lidar/sc_mini/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

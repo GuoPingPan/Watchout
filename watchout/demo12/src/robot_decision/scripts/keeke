@@ -1,0 +1,47 @@
+        
+def programming(n_bl, n_b, routelist, p_n, p_e, q):
+    """
+    路径规划程序，作为一个线程存在
+    :param n_bl: 障碍物列表
+    :param n_b: 包含障碍物和记忆函数
+    :param routelist: 路径
+    :param p_n 当前位置
+    :param p_e 结束位置
+    :param q 管道口，用于向控制进程传输下一个位置的信息
+    :return: 更新后的n_bl, n_b, routelist
+    """
+    p_next = -1
+    while p_n != p_e:
+        # print(p_n)
+        point_cloud_data = list()
+        point_cloud_data .append(tuple((7.8, 5.66)))
+        # 通讯,获得当前点云数据
+        # point_cloud_data =
+        create_block = Blocklist(SCALE, point_cloud_data, n_b, n_bl, maxrank=MAXRANK)
+        # n_bl, n_b = create_block.pcd_discretization()
+        n_bl, n_b = create_block.pcd_discretization(p_n=p_n, p_e=p_e)
+
+        if p_next == -1 or check(n_bl, routelist) == -1:
+            myastar = AStar(MAPSIZE, p_n, p_e)  # 类的初始化
+            myastar.setblock(n_bl)
+            p_next = myastar.run()
+            routelist = myastar.get_minroute()
+            routelist.reverse()
+            # print(routelist)
+        if p_n == p_e:
+            return
+        # print(0)
+        if p_next == -1:
+            continue
+        if routelist:
+            p_next = routelist[0]
+            del routelist[0]
+        # 通讯，向控制进程输入当前位置和路径信息
+        # print("send:", p_next)
+        # q.put(p_n, block=1)
+        # q.put(p_next, block=True)
+        q.send(p_next)
+        # 通讯，获得当前位置
+        p_n = p_next
+        # vis = Visualization(n_bl, p_n, p_e, mapsize=MAPSIZE, routelist=routelist)
+        # vis.visual()

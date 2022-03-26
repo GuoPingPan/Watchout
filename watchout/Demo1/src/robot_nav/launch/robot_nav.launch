@@ -1,0 +1,16 @@
+<launch>
+    <!-- <include file="$(find base_control)/launch/base_control.launch"/> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="odom2base"
+            args="1 1 0 0 0 0 /base_footprint /laser 20"/>  
+    <!-- <node pkg="tf" type="static_transform_publisher" name="laser2odom"
+            args="1 0 0 0 0 0 /odom /laser 20"/>   -->
+            <!-- 100ms = 10hz -->
+    <!-- <node name="scan2pointcloud" pkg="robot_perception" type="scan2pointcloud" output="screen">
+        <param name="base_frame" type="string" value="/base_footprint"/>
+    </node> -->
+    <!-- <node name="decision1" type="decision1.py" output="screen">
+
+    </node> -->
+
+</launch>

@@ -1,0 +1,25 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/pgp/imu_ws/devel/include/**",
+        "/home/pgp/perception/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/pgp/imu_ws/src/code_utils/include/**",
+        "/home/pgp/perception/src/demo1/include/**",
+        "/home/pgp/imu_ws/src/imu_turtlesim/include/**",
+        "/home/pgp/Demo1/src/robot_decision/include/**",
+        "/home/pgp/Demo1/src/robot_perception/include/**",
+        "/home/pgp/testvector/src/test/include/**",
+        "/home/pgp/imu_ws/src/timesync_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}
